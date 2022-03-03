@@ -23,7 +23,25 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data ditemukan",
+				"data": [
+					{
+						"id": 1,
+						"nama": "Baju Batik",
+						"created_at": "2022-03-02T13:55:28.000000Z",
+						"updated_at": "2022-03-02T14:01:23.000000Z"
+					},
+					{
+						"id": 2,
+						"nama": "Baju Olah Raga",
+						"created_at": "2022-03-02T13:59:48.000000Z",
+						"updated_at": "2022-03-02T14:00:21.000000Z"
+					}
+				]
+			}]
 		},
 		{
 			"name": "Insert Item",
@@ -53,7 +71,17 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil disimpan",
+				"data": {
+					"nama": "Baju Batik",
+					"updated_at": "2022-03-02T13:55:28.000000Z",
+					"created_at": "2022-03-02T13:55:28.000000Z",
+					"id": 1
+				}
+			}]
 		},
 		{
 			"name": "Update Item",
@@ -84,7 +112,17 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil diupdate",
+				"data": {
+					"id": 1,
+					"nama": "Baju Kemeja",
+					"created_at": "2022-03-02T13:55:28.000000Z",
+					"updated_at": "2022-03-02T14:01:58.000000Z"
+				}
+			}]
 		},
 		{
 			"name": "Delete Item",
@@ -105,7 +143,11 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil dihapus"
+			}]
 		},
 		{
 			"name": "List Pajak",
@@ -125,7 +167,27 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data ditemukan",
+				"data": [
+					{
+						"id": 1,
+						"nama": "PPH",
+						"rate": "5.00",
+						"created_at": "2022-03-02T14:05:05.000000Z",
+						"updated_at": "2022-03-02T14:05:05.000000Z"
+					},
+					{
+						"id": 2,
+						"nama": "PPN",
+						"rate": "15.00",
+						"created_at": "2022-03-02T14:06:08.000000Z",
+						"updated_at": "2022-03-02T14:06:08.000000Z"
+					}
+				]
+			}]
 		},
 		{
 			"name": "Insert Pajak",
@@ -137,12 +199,12 @@
 					"formdata": [
 						{
 							"key": "nama",
-							"value": "PPO",
+							"value": "PPH",
 							"type": "text"
 						},
 						{
 							"key": "rate",
-							"value": "15",
+							"value": "5",
 							"type": "text"
 						}
 					]
@@ -160,7 +222,18 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil disimpan",
+				"data": {
+					"nama": "PPH",
+					"rate": "5",
+					"updated_at": "2022-03-02T14:05:05.000000Z",
+					"created_at": "2022-03-02T14:05:05.000000Z",
+					"id": 1
+				}
+			}]
 		},
 		{
 			"name": "Update Pajak",
@@ -196,7 +269,18 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil diupdate",
+				"data": {
+					"id": 2,
+					"nama": "Pajak Lainnya",
+					"rate": "7",
+					"created_at": "2022-03-02T14:06:08.000000Z",
+					"updated_at": "2022-03-02T14:07:15.000000Z"
+				}
+			}]
 		},
 		{
 			"name": "Delete Pajak",
@@ -204,7 +288,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/pajak/3",
+					"raw": "http://localhost:8000/api/pajak/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -213,11 +297,15 @@
 					"path": [
 						"api",
 						"pajak",
-						"3"
+						"7"
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil dihapus"
+			}]
 		},
 		{
 			"name": "List Pajak Item",
@@ -237,7 +325,18 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data ditemukan",
+				"data": [
+					{
+						"id": 1,
+						"nama": "Baju Kemeja",
+						"pajak": "[{\"id\": 1, \"nama\": \"PPH\", \"rate\": \"5%\"},{\"id\": 2, \"nama\": \"PPO\", \"rate\": \"15%\"},{\"id\": 3, \"nama\": \"Pajak Lainnya\", \"rate\": \"7%\"}]"
+					}
+				]
+			}]
 		},
 		{
 			"name": "Store Pajak Item",
@@ -254,7 +353,7 @@
 						},
 						{
 							"key": "pajak_id",
-							"value": "2",
+							"value": "1",
 							"type": "text"
 						}
 					]
@@ -272,7 +371,18 @@
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil disimpan",
+				"data": {
+					"item_id": "1",
+					"pajak_id": "1",
+					"updated_at": "2022-03-02T14:09:32.000000Z",
+					"created_at": "2022-03-02T14:09:32.000000Z",
+					"id": 1
+				}
+			}]
 		},
 		{
 			"name": "Update Pajak Item",
@@ -283,7 +393,7 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "pajak_id_new",
+							"key": "item_id",
 							"value": "1",
 							"type": "text"
 						},
@@ -295,7 +405,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8000/api/pajak-item/1",
+					"raw": "http://localhost:8000/api/pajak-item/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -304,11 +414,22 @@
 					"path": [
 						"api",
 						"pajak-item",
-						"1"
+						"3"
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil diupdate",
+				"data": {
+					"id": 2,
+					"item_id": "1",
+					"pajak_id": "4",
+					"created_at": "2022-03-02T14:10:00.000000Z",
+					"updated_at": "2022-03-02T14:11:24.000000Z"
+				}
+			}]
 		},
 		{
 			"name": "Delete Pajak Item",
@@ -316,7 +437,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/api/pajak-item/1?pajak_id=4",
+					"raw": "http://localhost:8000/api/pajak-item/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -325,17 +446,15 @@
 					"path": [
 						"api",
 						"pajak-item",
-						"1"
-					],
-					"query": [
-						{
-							"key": "pajak_id",
-							"value": "4"
-						}
+						"3"
 					]
 				}
 			},
-			"response": []
+			"response": [{
+				"code": 200,
+				"status": "success",
+				"message": "Data berhasil dihapus"
+			}]
 		}
 	]
 }

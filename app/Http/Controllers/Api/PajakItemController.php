@@ -70,7 +70,7 @@ class PajakItemController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'item_id' => 'required',    // id pajak baru
+            'pajak_id_new' => 'required',    // id pajak baru
             'pajak_id' => 'required',   // id pajak old
         ]);
 
@@ -84,7 +84,7 @@ class PajakItemController extends Controller
         }
 
         $itempajak = Item::find($id);
-        $itempajak->pajak()->updateExistingPivot($request->item_id, [
+        $itempajak->pajak()->updateExistingPivot($request->pajak_id_new, [
             'pajak_id' => $request->pajak_id,
         ]);
         if ($itempajak) {
