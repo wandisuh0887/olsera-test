@@ -14,4 +14,11 @@ class Pajak extends Model
     protected $fillable = [
        'nama','rate'
     ];
+
+    protected $hidden = ['created_at','updated_at','pivot'];
+
+    public function pajak()
+    {
+        return $this->belongsToMany(Item::class, 'pajak_item', 'pajak_id', 'item_id');
+    }
 }

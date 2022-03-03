@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PajakItem;
+use App\Models\Item;
 use Validator, DB;
 
 class PajakItemController extends Controller
@@ -12,13 +13,14 @@ class PajakItemController extends Controller
     public function index()
     { 
         
-        $itempajak = DB::table('pajak_item as pi')
-                            ->select('i.id','i.nama', DB::Raw('concat("[", group_concat(json_object("id", pi.id, "nama", p.nama, "rate", concat(floor(p.rate),"%"))), "]") as pajak'))
-                            ->join('pajak as p', 'pi.pajak_id', '=', 'p.id')
-                            ->join('item as i', 'pi.item_id', '=', 'i.id')
-                            ->groupBy('i.id')
-                            ->get();
+        // $itempajak = DB::table('pajak_item as pi')
+        //                     ->select('i.id','i.nama', DB::Raw('concat("[", group_concat(json_object("id", pi.id, "nama", p.nama, "rate", concat(floor(p.rate),"%"))), "]") as pajak'))
+        //                     ->join('pajak as p', 'pi.pajak_id', '=', 'p.id')
+        //                     ->join('item as i', 'pi.item_id', '=', 'i.id')
+        //                     ->groupBy('i.id')
+        //                     ->get();
 
+        $itempajak = Item::with('pajak')->get();
         
         if ($itempajak) {
             $response = [
