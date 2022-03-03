@@ -15,10 +15,8 @@ class Item extends Model
        'nama'
     ];
 
-    protected $hidden = ['created_at','updated_at'];
-
     public function pajak()
     {
-        return $this->belongsToMany(Pajak::class, 'pajak_item', 'item_id', 'pajak_id');
+        return $this->belongsToMany(Pajak::class, 'pajak_item');
     }
 }

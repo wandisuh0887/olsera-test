@@ -15,9 +15,7 @@ class Pajak extends Model
        'nama','rate'
     ];
 
-    protected $hidden = ['created_at','updated_at','pivot'];
-
-    public function pajak()
+    public function item()
     {
         return $this->belongsToMany(Item::class, 'pajak_item', 'pajak_id', 'item_id');
     }
